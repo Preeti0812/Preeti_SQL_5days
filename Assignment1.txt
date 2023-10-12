@@ -98,3 +98,32 @@ SQL> select * from gym_members where (expiration_date-joining_date) < 730;
          3 ravi                         26 20-JUN-15 29-JUL-16       1210 indore                                158         48 12-OCT-23
          4 Anurag                       25 20-MAY-17 29-JUL-18       1510 Pune                                  148         46 12-OCT-23
          5 Ang                          27 29-MAY-19 29-JUL-20       1800 Mumbai                                166         50 12-OCT-23
+
+
+
+
+
+
+
+--------------------------------
+
+SQL> select name, (weight/((height/100)*(height/100))) from gym_members;
+
+NAME                 (WEIGHT/((HEIGHT/100)*(HEIGHT/100)))
+-------------------- ------------------------------------
+Preeti                                          18.974532
+Prem                                            17.087445
+ravi                                           19.2276879
+Anurag                                         21.0007305
+Ang                                            18.1448686
+Swati                                          19.8347107
+
+
+
+SQL> select name, EXTRACT(YEAR FROM sysdate) - age as BIRTH_YEAR from gym_members where city = 'Pune';
+
+NAME                 BIRTH_YEAR
+-------------------- ----------
+Anurag                     1998
+
+ select * from gym_members order by age desc;
